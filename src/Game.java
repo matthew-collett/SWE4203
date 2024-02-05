@@ -154,12 +154,19 @@ class Game implements Disposer {
   }
 
   private void checkFinished() {
+    // this.count == 9? I'm not sure if this is right
     this.finished = this.checkWon(State.X) || this.checkWon(State.O) || this.count == 9;
   }
 
   private boolean checkWon(State state) {
     for (int i = 0; i < 3; i++) {
+      /**
+       * [0,0], [0,1], [0,2]
+       * [1,0], [1,1], [1,2]
+       * [2,0], [2,1], [2,2]
+       */
       if (
+        // checks for horizontal tic tac toe
         this.game[i][0] == state &&
         this.game[i][1] == state &&
         this.game[i][2] == state
@@ -169,6 +176,7 @@ class Game implements Disposer {
     }
 
     for (int j = 0; j < 3; j++) {
+      // vertical check?
       if (
         this.game[0][j] == state &&
         this.game[1][j] == state &&
@@ -178,6 +186,7 @@ class Game implements Disposer {
       }
     }
 
+    // diagonal
     if (
       this.game[0][0] == state &&
       this.game[1][1] == state &&
@@ -186,14 +195,8 @@ class Game implements Disposer {
       return true;
     }
 
-    if (
-      this.game[2][2] == state &&
-      this.game[1][1] == state &&
-      this.game[0][0] == state
-    ) {
-      return true;
-    }
-
-    return false;
+    else return this.game[2][0] == state &&
+            this.game[1][1] == state &&
+            this.game[0][2] == state;
   }
 }
