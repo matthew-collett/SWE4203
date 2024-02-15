@@ -14,6 +14,7 @@ enum PlayableState {
 enum Player {
   HOST,
   OPPONENT,
+  NONE
 }
 
 enum PlayResult {
@@ -89,12 +90,14 @@ class Game implements Disposer {
       this.game[y][y] = State.O;
     }
 
+    this.checkFinished();
+
     Game.log.info(player.toString() + " played " + this.game[x][y].toString() + " at " + x + ", " + y);
-    String message = String.format(
-      "data: { \"location\": [%d, %d], \"gameOver\": %s }\n\n", 
-      x,
-      y,
-      this.finished
+    String message = String.format("data: { \"location\": [%d, %d], \"gameOver\": %s, \"winner\": \"%s\" }\n\n",
+        x,
+        y,
+        this.finished,
+        this.finished ? player : Player.NONE.toString()
     );
 
     try {
@@ -103,8 +106,6 @@ class Game implements Disposer {
     } catch (IOException e) {
       Game.log.severe("Unknown IOException while writing to SSE stream: " + e.toString());
     }
-
-    this.checkFinished();
 
     if (this.finished) {
       return PlayResult.GAME_FINISHED;
