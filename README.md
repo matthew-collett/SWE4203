@@ -1,8 +1,18 @@
 # Client-Server Tic-Tac-Toe
-The 2020-2021 SWE4203 lab project!
+The 2020-2021 SWE4203 lab project designed to explore the fundamentals of client-server architecture and software maintenance through a classic Tic Tac Toe game, enabling two players to compete against each other in real-time.
+
+## Project Description
+This project implements a classic Tic Tac Toe game in a client-server architecture, allowing users to play against each other. 
+The game supports dynamic connection handling, session management, and provides a user-friendly interface for hosting and joining games.
+
+## Installation
+### Prerequisites
+- Ensure Java is installed on your system. Follow the installation guide [here](https://www3.ntu.edu.sg/home/ehchua/programming/howto/JDK_Howto.html).
+
+
 
 ## Compilation
-You will need to [install Java](https://www3.ntu.edu.sg/home/ehchua/programming/howto/JDK_Howto.html) before you can compile/run this application. Once installed, just run `javac`.
+Run as shown below `javac`.
 
 ```
 javac src/*.java
@@ -15,11 +25,12 @@ cd src
 java Main # optionally pass in the port e.g. java Main 5000
 ```
 
-This will start a server at [`localhost:3000`](http://localhost:3000) if you used the default port. To play against yourself, you will need to open two instances of the application. In the first instance, click `"Host Game"` and then copy the access code that appeared. In the second window, paste the access code in the `Access Code` field and then click `"Find Game"`. After, you will be able to take turns placing your markers. 
+This will start a server at [`localhost:3000`](http://localhost:3000) if you used the default port. To play against yourself, you will need to open two instances of [`localhost:3000`](http://localhost:3000). In the first instance, click `"Host Game"` and then copy the access code that appeared. In the second window, paste the access code in the `Access Code` field and then click `"Find Game"`. After, you will be able to take turns placing your markers. 
 
 > Remember, the host always goes first!
 
 ## Development
+### Hot Reload for Unix Systems
 If you are on a Unix based system, you can use the following command to start a hot reload server.
 ```
 # -r because the child process is persistent and -s because we are passing in a shell command
@@ -54,3 +65,12 @@ Next, run:
 ```
 redoc-cli bundle -o index.html swagger.yml
 ``` -->
+
+
+## Current UML Architecture Diagram
+
+
+## Current JS Dependencies
+
+
+## API Control Flow Diagram
