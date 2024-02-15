@@ -1,15 +1,12 @@
-# Client-Server Tic-Tac-Toe
-The 2020-2021 SWE4203 lab project designed to explore the fundamentals of client-server architecture and software maintenance through a classic Tic Tac Toe game, enabling two players to compete against each other in real-time.
+# <p align="center">SWE4203 Project - Tic-Tac-Toe Game</p>
+<p align="center"><img src="https://github.com/matthew-collett/SWE4203/assets/97645707/a1893d4a-3759-40c1-81ca-6ea63350a937" width=700/></p>
 
 ## Project Description
-This project implements a classic Tic Tac Toe game in a client-server architecture, allowing users to play against each other. 
-The game supports dynamic connection handling, session management, and provides a user-friendly interface for hosting and joining games.
+The 2023-2024 SWE4203 project designed to explore the fundamentals of software evolution and maintenance through a classic client-server Tic Tac Toe game, enabling two players to compete against each other in real-time.
 
 ## Installation
 ### Prerequisites
 - Ensure Java is installed on your system. Follow the installation guide [here](https://www3.ntu.edu.sg/home/ehchua/programming/howto/JDK_Howto.html).
-
-
 
 ## Compilation
 Run as shown below `javac`.
@@ -66,11 +63,11 @@ Next, run:
 redoc-cli bundle -o index.html swagger.yml
 ``` -->
 
+## UML Architecture Diagram
+<p align="center"><img src="https://github.com/matthew-collett/SWE4203/assets/97645707/4f6e3fae-74cd-4285-ac86-4498adbbd81d" width=300></p>
 
-## Current UML Architecture Diagram
-
-
-## Current JS Dependencies
-
+## JS Dependencies
+<p align="center"><img src="https://github.com/matthew-collett/SWE4203/assets/97645707/becc058d-8545-4e84-972e-cc5f68534c7c" width=300></p>
 
 ## API Control Flow Diagram
+<p align="center"><img src="https://github.com/matthew-collett/SWE4203/assets/97645707/362fdd39-dd9b-4610-bb21-5a6f9be23d00" width=700></p>
