@@ -221,7 +221,8 @@ const makePlay = async (x, y) => {
 }
 
 function resetGame() {
-  //errorAlert.innerText ="";
+  //errorAlert.innerText =
+
   hostTurn = true;
 
   $(".x-box").removeClass("x-box").addClass("free-box");
@@ -236,6 +237,11 @@ function resetGame() {
   accessCodeDisplay.textContent = "";
   gameState.eventSource.close();
   gameState = undefined;
+
+  if (!(errorAlert.innerText === "An error occurred during the SSE.")) {
+    errorAlert.innerText = "";
+  }
+
 }
 
 /**
@@ -284,3 +290,4 @@ const get = async (url, onSuccess) => {
   console.log(`Data from ${url}: `, json.data);
   await onSuccess(json.data);
 }
+
