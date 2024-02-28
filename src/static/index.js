@@ -36,6 +36,11 @@ let gameStatusDisplay;
 let resetGameButton
 
 /**
+ * @type {HTMLButtonElement}
+ */
+let playAgainButton;
+
+/**
  * @type {{ player: 'HOST' | 'OPPONENT', gameCode: string, eventSource: EventSource }}
  */
 let gameState
@@ -54,12 +59,14 @@ window.onload = () => {
   hostGameButton = document.getElementById("host-game");
   gameStatusDisplay = document.getElementById("game-stat-disp");
   resetGameButton = document.getElementById("reset-game");
+  playAgainButton = documents.getElementById("play-again");
 }
 
 const disableConnectionButtons = () => {
   findGameButton.disabled = true;
   hostGameButton.disabled = true;
   resetGameButton.disabled = false;
+  playAgainButton.disabled = true;
 }
 
 const enableConnectionButtons = () => {
@@ -215,28 +222,33 @@ const makePlay = async (x, y) => {
 
       if (data.gameOver) {
         setWinnerDisp(data.winner);
+        playAgainButton.disabled = false;
       }
     }
   );
 }
 
+const playAgain = () => {
+  clearBoard();
+  playAgainButton.disabled = false;
+}
+
 function resetGame() {
-  //errorAlert.innerText ="";
   hostTurn = true;
-
-  $(".x-box").removeClass("x-box").addClass("free-box");
-  $(".o-box").removeClass("o-box").addClass("free-box");
   enableConnectionButtons();
-  clearTurnDisp();
-
-  // TODO: Remove
-  $("#box-1-1").html("");
   // We don't reset the error alert since an error may have caused the reset
   // and we error to still show after the game has reset
   accessCodeDisplay.textContent = "";
   gameState.eventSource.close();
   gameState = undefined;
 }
+
+const clearBoard = () => {
+  $(".x-box").removeClass("x-box").addClass("free-box");
+  $(".o-box").removeClass("o-box").addClass("free-box");
+  clearTurnDisp();
+}
+
 
 /**
  * Sends a get request to the given url. Returns nothing if an error occurs (it will print the
