@@ -221,7 +221,7 @@ const makePlay = async (x, y) => {
 }
 
 function resetGame() {
-  errorAlert.innerText ="";
+  //errorAlert.innerText ="";
   hostTurn = true;
 
   $(".x-box").removeClass("x-box").addClass("free-box");
