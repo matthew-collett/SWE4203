@@ -221,6 +221,7 @@ const makePlay = async (x, y) => {
 }
 
 function resetGame() {
+  errorAlert.innerText ="";
   hostTurn = true;
 
   $(".x-box").removeClass("x-box").addClass("free-box");
@@ -275,6 +276,9 @@ const get = async (url, onSuccess) => {
   if (json.result === "error") {
     errorAlert.innerText = `Bad request to ${url}: ${json.error}`;
     return;
+  }
+  else{
+    errorAlert.innerText = "";
   }
 
   console.log(`Data from ${url}: `, json.data);
