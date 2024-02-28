@@ -280,3 +280,29 @@ const get = async (url, onSuccess) => {
   console.log(`Data from ${url}: `, json.data);
   await onSuccess(json.data);
 }
+document.getElementById('darkModeToggle').addEventListener('change', toggleTheme);
+
+function toggleTheme() {
+  document.querySelectorAll('*').forEach(e => {
+    e.classList.forEach(c => {
+        if (c.startsWith('bg-')) {
+          e.classList.replace(c, c === 'bg-dark' ? 'bg-light' : (c === 'bg-light' ? 'bg-dark' : c));
+        }
+
+        if (c.startsWith('btn-')) {
+          e.classList.replace(c, c === 'btn-dark' ? 'btn-light' : (c === 'btn-light' ? 'btn-dark' : c));
+        }
+
+        if (c.startsWith('border-')) {
+          e.classList.replace(c, c === 'border-dark' ? 'border-light' : (c === 'border-light' ? 'border-dark' : c));
+        }
+
+        if (c.startsWith('text-')) {
+          e.classList.replace(c, c === 'text-dark' ? 'text-light' : (c === 'text-light' ? 'text-dark' : c));
+        }
+    });
+  });
+}
+
+
+
