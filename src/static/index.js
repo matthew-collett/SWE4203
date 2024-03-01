@@ -221,6 +221,7 @@ const makePlay = async (x, y) => {
 }
 
 function resetGame() {
+
   hostTurn = true;
 
   $(".x-box").removeClass("x-box").addClass("free-box");
@@ -235,6 +236,11 @@ function resetGame() {
   accessCodeDisplay.textContent = "";
   gameState.eventSource.close();
   gameState = undefined;
+
+  if (!(errorAlert.innerText === "An error occurred during the SSE.")) {
+    errorAlert.innerText = "";
+  }
+
 }
 
 /**
@@ -276,6 +282,9 @@ const get = async (url, onSuccess) => {
     errorAlert.innerText = `Bad request to ${url}: ${json.error}`;
     return;
   }
+  else{
+    errorAlert.innerText = "";
+  }
 
   console.log(`Data from ${url}: `, json.data);
   await onSuccess(json.data);
@@ -303,6 +312,4 @@ function toggleTheme() {
     });
   });
 }
-
-
 
