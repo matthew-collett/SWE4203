@@ -221,7 +221,6 @@ const makePlay = async (x, y) => {
 }
 
 function resetGame() {
-  //errorAlert.innerText =
 
   hostTurn = true;
 
